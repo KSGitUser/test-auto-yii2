@@ -1,6 +1,8 @@
 <?php
 
 /* @var $this yii\web\View */
+use app\assets\AppAsset;
+AppAsset::register($this);
 
 $this->title = 'My Yii Application';
 ?>
@@ -15,6 +17,9 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
+        <?php $form = \yii\widgets\ActiveForm::begin()?>
+        <?= \yii\helpers\Html::dropDownList('list',null,[],['class' => 'select-form'] ) ?>
+        <?php \yii\widgets\ActiveForm::end() ?>
 
         <div class="row">
             <div class="col-lg-4">

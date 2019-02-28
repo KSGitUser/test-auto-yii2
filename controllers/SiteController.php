@@ -125,4 +125,18 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+//    public function beforeAction($action)
+//    {
+//
+//
+//
+//    }
+
+    public function actionJs()
+    {
+        /*\Yii::$app->response->format = Response::FORMAT_JSON;*/
+        //        return parent::beforeAction($action);
+        return $this->asJson(['js' => 'Hello JS']);
+    }
 }
