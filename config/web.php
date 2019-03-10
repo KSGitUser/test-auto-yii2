@@ -1,5 +1,6 @@
 <?php
 
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -10,6 +11,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@img' => '@app/web/img',
     ],
     'components' => [
         'request' => [
@@ -55,6 +57,7 @@ $config = [
 
     ],
     'params' => $params,
+    'defaultRoute' => 'auto',
 ];
 
 if (YII_ENV_DEV) {

@@ -1,8 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-use app\assets\AppAsset;
-AppAsset::register($this);
+
 
 $this->title = 'My Yii Application';
 ?>
