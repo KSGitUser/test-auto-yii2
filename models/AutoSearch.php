@@ -63,7 +63,6 @@ class AutoSearch extends Auto
             'brand_id' => $this->brand_id,
             'mileage' => $this->mileage,
             'price' => $this->price,
-            'photo_id' => $this->photo_id,
         ]);
 
         $query->andFilterWhere(['like', 'phone', $this->phone]);

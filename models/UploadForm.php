@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Катерина
- * Date: 06.03.2019
- * Time: 21:47
- */
 
 namespace app\models;
 
@@ -37,10 +31,6 @@ class UploadForm extends Model
     public $imageFile;
     public $safeties;
 
-
-
-
-
     public function rules()
     {
         return [
@@ -48,7 +38,10 @@ class UploadForm extends Model
             [['brand_id', 'mileage'], 'integer'],
             [['price'], 'number'],
             [['phone'], 'string', 'max' => 12],
-            [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brand::className(), 'targetAttribute' => ['brand_id' => 'id']],
+            [['brand_id'], 'exist',
+                'skipOnError' => true,
+                'targetClass' => Brand::class,
+                'targetAttribute' => ['brand_id' => 'id']],
             ['imageFile', 'file', 'maxFiles' => 3, 'extensions' => 'jpg, png'],
             [['safeties', 'model_id'], 'safe'],
 
@@ -104,8 +97,6 @@ class UploadForm extends Model
                 $ratioWidth = $imageWidth/$middleWidth;
                 $ratioHeight = $imageHeight/$middleHeight;
 
-
-
                 if ($ratioWidth>=$ratioHeight) {
 
                     $newSize = $img->getSize()->widen(720);
@@ -131,7 +122,6 @@ class UploadForm extends Model
 
     public function safetiesAdd($autoId) {
 
-
         if (!empty($this->safeties)) {
         foreach ($this->safeties as $safety) {
             $autoSafety = new AutoSafety();
@@ -146,10 +136,8 @@ class UploadForm extends Model
     public function getOne($id)
     {
         $auto = Auto::find()->select()->where("id = {$id}")->one();
-        var_dump($auto);
 
     }
-
 
 
 }

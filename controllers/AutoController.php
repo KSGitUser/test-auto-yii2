@@ -96,11 +96,6 @@ class AutoController extends Controller
 
         $safetiesArray = ArrayHelper::map($safetiesForCheckboxes,'id', 'name');
 
-
-
-        /*var_dump(Yii::$app->request->post('Auto')); exit;*/
-
-
         if ($model->load(Yii::$app->request->post())) {
             $postData = Yii::$app->request->post('Auto');
             $model->model_id = $postData['model_id'];
@@ -150,7 +145,6 @@ class AutoController extends Controller
     }
 
 
-
     /**
      * Finds the Auto model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -184,13 +178,14 @@ class AutoController extends Controller
     {
 
         if ((Auto::findOne($id)) !== null) {
-            $autoModel = Auto::find()->with('model', 'brand', 'safeties', 'images')->where("id = {$id}")->one();
+            $autoModel = Auto::find()
+                ->with('model', 'brand', 'safeties', 'images')
+                ->where("id = {$id}")
+                ->one();
 
-           /* var_dump($autoModel->images[0]->path); exit;*/
             return $this->render('one', [
                 'model' => $autoModel,
             ]);
-
         }
         throw new NotFoundHttpException('The requested page does not exist.');
     }

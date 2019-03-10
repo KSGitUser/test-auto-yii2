@@ -67,13 +67,6 @@ class Auto extends \yii\db\ActiveRecord
         return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
     }
 
-/*    public function getModel()
-    {
-        $modelName = Model::find()->select('brand_name')->where("brand_id={$this->brand->id}");
-        var_dump($modelName);
-        return $this->hasOne(Model::class, ['id' => 'brand_id'])->viaTable('brand', ['id' => 'brand_id']);
-    }*/
-
 
     public function getModel()
     {

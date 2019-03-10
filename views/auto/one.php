@@ -8,7 +8,7 @@ OneCardAsset::register($this);
 <h3>Цена: <?=$model->price?></h3>
 <div class="view-container">
 
-<div class=""images-block">
+<div class="images-block">
     <div class="main-image">
         <?= Html::img("img/middle/720-{$model->images[0]->path}",
             ['alt' => $model->images[0]->path, 'class' => 'big-image']) ?>
@@ -35,7 +35,7 @@ OneCardAsset::register($this);
     </div>
 </div>
 <div class="information-block">
-    <p>Пробег: <?= $model->mileage?></p>
+    <p><strong>Пробег:</strong><?= $model->mileage?></p>
     <details class="safeties_details">
         <summary class="details_summary">Безопасность:</summary>
         <?php
