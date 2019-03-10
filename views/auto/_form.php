@@ -17,7 +17,8 @@ use yii\widgets\ActiveForm;
     <?= \yii\helpers\Html::label('Модель', ['class'=>'control-label']) ?>
     <?= \yii\helpers\Html::dropDownList('Auto[model_id]',null,[],
         ['class' => 'model-select-form form-control',
-            'prompt' => 'Вначале выберете марку автомобиля',] ) ?>
+            'prompt' => 'Вначале выберете марку автомобиля',
+            'required' => 'required'] ) ?>
 
 
     <?= $form->field($model, 'mileage')->textInput() ?>

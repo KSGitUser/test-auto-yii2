@@ -88,12 +88,9 @@ class AutoController extends Controller
     public function actionCreate()
     {
         $model = new UploadForm();
-        /* $safetyModel = new Safety();*/
         $brandForSelect = Brand::find()->select(['id', 'brand_name'])->all();
         $brandArray = ArrayHelper::map($brandForSelect,'id', 'brand_name');
-
         $safetiesForCheckboxes = Safety::find()->select(['id', 'name'])->all();
-
         $safetiesArray = ArrayHelper::map($safetiesForCheckboxes,'id', 'name');
 
         if ($model->load(Yii::$app->request->post())) {
@@ -101,9 +98,7 @@ class AutoController extends Controller
             $model->model_id = $postData['model_id'];
             $model->imageFile = UploadedFile::getInstances($model,'imageFile');
             $model->saveAuto();
-
             return $this->redirect(['auto/one', 'id' => $model->id]);
-
         }
 
         return $this->render('create', [

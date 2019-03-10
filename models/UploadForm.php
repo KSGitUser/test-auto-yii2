@@ -34,7 +34,7 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-            [['brand_id'], 'required'],
+            [['brand_id', 'model_id', 'price', 'phone'], 'required'],
             [['brand_id', 'mileage'], 'integer'],
             [['price'], 'number'],
             [['phone'], 'string', 'max' => 12],
